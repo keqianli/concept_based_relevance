@@ -1,4 +1,4 @@
-TEXT=../input/signal_processing__oneDocPerLine.txt
+TEXT=../input/DBLP_small.txt
 
 source conf.d/autoPhrase.sh
 
