@@ -44,7 +44,14 @@ and specify the input/output by changing the following variables at the beginnin
 * ```MODEL```: the path for the stored model you wish to use
 * ```SEGGED_TEXT_categorized```: the final output
 
-```TEXT``` and ```CATEGORY_SEEDCONCEPTS``` can use exported environmental variables
+You can change the value of ```TEXT``` and ```CATEGORY_SEEDCONCEPTS``` by editing the script, or exporting environmental variables with the same names.
+
+## Helper function
+Uncomment the line
+```
+python helper/query_concept_dictionary.py $SEGGED_TEXT_WORDVEC
+```
+to use the helper function to select seed concepts. By entering a word, you will be able to get a list of concepts that contain the word, which can then be used as seed concepts
 
 ## Input Format
 * The input files specified by ```TEXT``` for both ```train.sh``` and ```test.sh``` should be one document per line.
