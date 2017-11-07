@@ -1,5 +1,5 @@
 TEXT=../input/DBLP_small.txt
-CATEGORY_SEEDCONCEPTS=taxonomy_DBLP.txt
+CATEGORY_SEEDCONCEPTS=query_DBLP.txt
 
 
 source conf.d/autoPhrase.sh
