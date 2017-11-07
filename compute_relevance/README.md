@@ -1,4 +1,4 @@
-# Unsupervised Document Categorization
+# Concept-based Document Retrieval
 
 
 ## Notes
@@ -30,7 +30,7 @@ First, to fit our model to a corpus, run
 ```
 $ bash ./train.sh
 ```
-and specify the input/output by changing the following variables at the begining of the script
+and specify the input/output by changing the following variables at the beginning of the script
 * ```TEXT```: the input text file
 * ```MODEL```: the path to store the model
 
@@ -38,18 +38,20 @@ Then, query a specific set of documents, run
 ```
 $ bash ./test.sh
 ```
-and specify the input/output by changing the following variables at the begining of the script
+and specify the input/output by changing the following variables at the beginning of the script
 * ```TEXT```: the input text file
 * ```CATEGORY_SEEDCONCEPTS```: one or more set of concepts to query
 * ```MODEL```: the path for the stored model you wish to use
 * ```SEGGED_TEXT_categorized```: the final output
+
+```TEXT``` and ```CATEGORY_SEEDCONCEPTS``` can use exported environmental variables
 
 ## Input Format
 * The input files specified by ```TEXT``` for both ```train.sh``` and ```test.sh``` should be one document per line.
 * The input file ```CATEGORY_SEEDCONCEPTS``` should have each line following the format ```[category name]\t[concept1],[concept2],[concept3]...```, and can contain one or more lines.
 
 ## Output Format
-The query relevance output, as specified by the `SEGGED_TEXT_categorized` in the begining of the ```test.sh```, is of the format of [relevance to concept set1], [relevance to concept set2]...
+The query relevance output, as specified by the `SEGGED_TEXT_categorized` in the beginning of the ```test.sh```, is in the format of [relevance to concept set1], [relevance to concept set2]...
 
 
 ## Hyper-Parameters
@@ -59,7 +61,7 @@ The running parameters are located in `conf.d` folder, including `autoPhrase.con
 
 `pyConfig.conf` contains the parameters for all other training steps
 
-### segphrase.conf
+### autoPhrase.conf
 
 ```
 MIN_SUP=10
@@ -81,7 +83,7 @@ HIGHLIGHT_SINGLE=0.9
 
 The threshold for multi-word phrases to be recognized as quality phrases.
 
-### learning_embedding.conf
+### pyConfig.conf
 
 ```
 USE_CONCEPT_GRAPH=1
@@ -91,7 +93,7 @@ whether to use the concept graph distance algorithm (when set to `1`) or to use 
 ```
 MIN_NEIGHBOR_SIMILARITY=.6
 ```
-minimum threshold for concept pairs to be considered neighbors in the concept graph
+the minimum threshold for concept pairs to be considered neighbors in the concept graph
 
 ```
 MIN_CATEGORY_NEIGHBOR=3
