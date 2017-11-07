@@ -1,6 +1,6 @@
-TEXT=${TEXT:-../input/arxiv_cs_small.txt}
+TEXT=${TEXT:-../input/DBLP_small.txt}
 
-source conf.d/autoPhrase.sh
+source conf.d/autoPhrase.conf
 
 export RAW_TRAIN=$TEXT
 cd ../AutoPhrase/

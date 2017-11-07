@@ -1,14 +1,7 @@
-TEXT=${TEXT:-../input/arxiv_cs_small.txt}
-CATEGORY_SEEDCONCEPTS=${CATEGORY_SEEDCONCEPTS:-../input/query_arxiv_cs_small.txt}
+TEXT=${TEXT:-../input/DBLP_small.txt}
+CATEGORY_SEEDCONCEPTS=${CATEGORY_SEEDCONCEPTS:-../input/query_DBLP.txt}
 
-
-
-source conf.d/autoPhrase.sh
-
-# export TEXT_TO_SEG=$TEXT
-# cd ../AutoPhrase/
-# ./phrasal_segmentation.sh
-# cd -
+source conf.d/autoPhrase.conf
 
 export OUTPUT_DIR=../output/$MODEL
 export SEGGED_TEXT=$OUTPUT_DIR/segmentation.txt
