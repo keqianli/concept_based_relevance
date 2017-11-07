@@ -20,7 +20,8 @@ export FINAL_RELEVANCE=$OUTPUT_DIR/relevance.txt
 
 mkdir -p $OUTPUT_DIR
 
-python helper/query_concept_dictionary.py $SEGGED_TEXT_WORDVEC
+# uncomment below to help select seed concepts
+# python helper/query_concept_dictionary.py $SEGGED_TEXT_WORDVEC
 
 cp ../AutoPhrase/$MODEL/segmentation.txt $SEGGED_TEXT
 python segmented2phrase_as_word.py $SEGGED_TEXT $SEGGED_TEXT_phrase_as_word
