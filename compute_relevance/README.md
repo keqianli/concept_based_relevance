@@ -1,4 +1,4 @@
-# categorization
+# Unsupervised Document Categorization
 
 
 ## Notes
@@ -21,14 +21,14 @@ $ sudo pip install -r requirements.txt
 ## Build
 Build AutoPhrase by Makefile in the terminal.
 ```
-$ cd SegPhrase
+$ cd AutoPhrase
 $ make
 ```
 
 ## Run
 First, to fit our model to a corpus, run
 ```
-$ bash ./train.sh 
+$ bash ./train.sh
 ```
 and specify the input/output by changing the following variables at the begining of the script
 * ```TEXT```: the input text file
@@ -36,7 +36,7 @@ and specify the input/output by changing the following variables at the begining
 
 Then, query a specific set of documents, run
 ```
-$ bash ./test.sh 
+$ bash ./test.sh
 ```
 and specify the input/output by changing the following variables at the begining of the script
 * ```TEXT```: the input text file
@@ -45,7 +45,7 @@ and specify the input/output by changing the following variables at the begining
 * ```SEGGED_TEXT_categorized```: the final output
 
 ## Input Format
-* The input files specified by ```TEXT``` for both ```train.sh``` and ```test.sh``` should be one document per line. 
+* The input files specified by ```TEXT``` for both ```train.sh``` and ```test.sh``` should be one document per line.
 * The input file ```CATEGORY_SEEDCONCEPTS``` should have each line following the format ```[category name]\t[concept1],[concept2],[concept3]...```, and can contain one or more lines.
 
 ## Output Format
@@ -53,7 +53,7 @@ The query relevance output, as specified by the `SEGGED_TEXT_categorized` in the
 
 
 ## Hyper-Parameters
-The running parameters are located in `conf.d` folder, including `autoPhrase.conf` and `pyConfig.conf`. 
+The running parameters are located in `conf.d` folder, including `autoPhrase.conf` and `pyConfig.conf`.
 
 `autoPhrase.conf` contains the parameters for concept extraction and segmentation.
 
@@ -76,7 +76,7 @@ The threshold for multi-word phrases to be recognized as quality phrases.
 
 
 ```
-HIGHLIGHT_SINGLE=0.5
+HIGHLIGHT_SINGLE=0.9
 ```
 
 The threshold for multi-word phrases to be recognized as quality phrases.
