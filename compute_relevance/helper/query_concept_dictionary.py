@@ -1,6 +1,6 @@
 from gensim.models import word2vec
 import sys
-
+import re
 
 file_wordvec = sys.argv[1]
 
@@ -18,8 +18,11 @@ def searchConcept(query):
     return [w for w in ind2label_concepts if query in w]
 
 
+def displayString(w):
+    return re.sub(r'</?phrase>', '', w)
+
+
 name = 'default'
 while name:
     query = raw_input("Input your query word. No input to terminate:\n")
-    print '\n'.join(searchConcept(query))
-
+    print '\n'.join([displayString(c) for c in searchConcept(query)])

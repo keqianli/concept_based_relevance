@@ -1,8 +1,5 @@
-import os
 import sys
 import logging
-import re
-import random
 import re
 
 
@@ -45,7 +42,6 @@ def singleFileClean(file, file_output):
                 lineno += 1
                 # l = l.replace('$', ' ')
                 # l = l.lower()
-                l_o = l
                 l = brackets2UnderScoreNotation(l)
                 
                 l = condenseConsecutiveunderScoreToOne(l)

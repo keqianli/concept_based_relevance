@@ -58,7 +58,6 @@ def trim_rule(word, count, min_count):
 
 
 def displayString(w):
-    # return w
     return re.sub(r'</?phrase>', '', w)
 
 valid_size = 20  # Random set of words to evaluate similarity on.

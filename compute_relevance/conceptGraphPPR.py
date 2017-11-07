@@ -88,7 +88,7 @@ def get_concept_label_PPR():
     seed_conceptsAsIds = [getConceptIDs(seed_concepts, label2ind_concepts) for seed_concepts in seed_concepts_list]
     seed_concept_sets = [set([ind2label_concepts[i] for i in seed_conceptsAsId]) for seed_conceptsAsId in seed_conceptsAsIds]
     seed_concept_set = set(flatten(seed_concept_sets))
-    
+
     for ind in seed_concepts_set:
         print ind, 'similar neighbors:', model_concepts.most_similar(ind, topn=10)
 
@@ -128,7 +128,7 @@ def get_concept_label_query_expansion():
     model_concepts = word2vec.Word2Vec.load(file+'.model_wordPruning_dimension200_sg1_max_vocab_size-1')
 
     ind2label_concepts = model_concepts.wv.index2word
-    label2ind_concepts = reverseDict({k:v for k,v in enumerate(ind2label_concepts)})
+    label2ind_concepts = reverseDict({k: v for k, v in enumerate(ind2label_concepts)})
 
     def getConceptIDs(seed_concepts, label2ind_concepts):
         l = [label2ind_concepts.get('<phrase>%s</phrase>' % w, label2ind_concepts.get(w)) for w in seed_concepts]
@@ -138,7 +138,7 @@ def get_concept_label_query_expansion():
     seed_concepts_set = set([ind2label_concepts[i] for i in flatten(seed_conceptsAsIds)])
 
     ind2label_concepts = [w for w in ind2label_concepts if '_' in w or w in seed_concepts_set]
-    label2ind_concepts = reverseDict({k:v for k,v in enumerate(ind2label_concepts)})
+    label2ind_concepts = reverseDict({k: v for k, v in enumerate(ind2label_concepts)})
     seed_conceptsAsIds = [getConceptIDs(seed_concepts, label2ind_concepts) for seed_concepts in seed_concepts_list]
     seed_concept_sets = [set([ind2label_concepts[i] for i in seed_conceptsAsId]) for seed_conceptsAsId in seed_conceptsAsIds]
 
