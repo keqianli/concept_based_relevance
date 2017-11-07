@@ -1,4 +1,4 @@
-TEXT=${TEXT:-../input/DBLP_small.txt}
+TEXT=${TEXT:-../input/arxiv_cs_small.txt}
 
 source conf.d/autoPhrase.sh
 

@@ -1,4 +1,4 @@
 export MIN_SUP=30
 export HIGHLIGHT_MULTI=0.5
 export HIGHLIGHT_SINGLE=0.9
-export MODEL='DBLP_SMALL'
+export MODEL='ARXIV_CS'

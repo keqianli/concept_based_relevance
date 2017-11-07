@@ -36,7 +36,7 @@ file = '../AutoPhrase/ARL/segmentation.txt.phrase_as_word.retain_alphanumeric'
 if len(sys.argv) > 1:
     file = sys.argv[1]
 
-category_seedConcepts_file = './query_DBLP.txt'
+category_seedConcepts_file = './taxonomy_signal_processing_application.txt'
 if len(sys.argv) > 2:
     category_seedConcepts_file = sys.argv[2]
 
@@ -70,7 +70,14 @@ def get_concept_label_PPR():
     label2ind_concepts = reverseDict({k: v for k, v in enumerate(ind2label_concepts)})
 
     def getConceptIDs(seed_concepts, label2ind_concepts):
-        l = [label2ind_concepts.get('<phrase>%s</phrase>' % w, label2ind_concepts.get(w)) for w in seed_concepts]
+        def lookup(w, label2ind_concepts):
+            result = label2ind_concepts.get('<phrase>%s</phrase>' % w.lower())
+            if result is not None:
+                return result
+            result = label2ind_concepts.get(w)
+            if result is not None:
+                return result
+        l = [lookup(w.lower(), label2ind_concepts) for w in seed_concepts]
         return [d for d in l if d is not None]
 
     seed_conceptsAsIds = [getConceptIDs(seed_concepts, label2ind_concepts) for seed_concepts in seed_concepts_list]
@@ -81,6 +88,7 @@ def get_concept_label_PPR():
     seed_conceptsAsIds = [getConceptIDs(seed_concepts, label2ind_concepts) for seed_concepts in seed_concepts_list]
     seed_concept_sets = [set([ind2label_concepts[i] for i in seed_conceptsAsId]) for seed_conceptsAsId in seed_conceptsAsIds]
     seed_concept_set = set(flatten(seed_concept_sets))
+    
     for ind in seed_concepts_set:
         print ind, 'similar neighbors:', model_concepts.most_similar(ind, topn=10)
 
