@@ -1,0 +1,1 @@
+EXAMPLE_QUERY	analysis, design
