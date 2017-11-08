@@ -15,7 +15,7 @@ label2ind_concepts = reverseDict({k: v for k, v in enumerate(ind2label_concepts)
 
 
 def searchConcept(query):
-    return [w for w in ind2label_concepts if query in w]
+    return [w for w in ind2label_concepts if query in w and '___' not in w]
 
 
 def displayString(w):
