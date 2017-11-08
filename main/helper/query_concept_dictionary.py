@@ -14,8 +14,13 @@ ind2label_concepts = model_concepts.wv.index2word
 label2ind_concepts = reverseDict({k: v for k, v in enumerate(ind2label_concepts)})
 
 
+abnormal_phrase = re.compile(
+    r".*[-_]{2,}.*$"
+)
+
+
 def searchConcept(query):
-    return [w for w in ind2label_concepts if query in w and '___' not in w]
+    return [w for w in ind2label_concepts if query in w and not abnormal_phrase.match(w)]
 
 
 def displayString(w):
@@ -27,4 +32,6 @@ while True:
     name = raw_input("Input your query word. No input to terminate:")
     if not name:
         break
+    # allow user to input space separted words
+    name = '_'.join(filter(bool, name.split(' ')))
     print '\n'.join([displayString(c) for c in searchConcept(name)])
