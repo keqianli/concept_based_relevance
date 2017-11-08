@@ -32,7 +32,6 @@ $ bash ./train.sh
 ```
 and specify the input/output by changing the following variables at the beginning of the script
 * ```TEXT```: the input text file
-* ```MODEL```: the path to store the model
 
 Then, query a specific set of documents, run
 ```
@@ -41,15 +40,13 @@ $ bash ./test.sh
 and specify the input/output by changing the following variables at the beginning of the script
 * ```TEXT```: the input text file
 * ```CATEGORY_SEEDCONCEPTS```: one or more set of concepts to query
-* ```MODEL```: the path for the stored model you wish to use
-* ```SEGGED_TEXT_categorized```: the final output
 
 You can change the value of ```TEXT``` and ```CATEGORY_SEEDCONCEPTS``` by editing the script, or exporting environmental variables with the same names.
 
 ## Helper function
-Uncomment the line
+run
 ```
-python helper/query_concept_dictionary.py $SEGGED_TEXT_WORDVEC
+$ bash ./test.sh
 ```
 to use the helper function to select seed concepts. By entering a word, you will be able to get a list of concepts that contain the word, which can then be used as seed concepts
 
@@ -69,6 +66,12 @@ The running parameters are located in `conf.d` folder, including `autoPhrase.con
 `pyConfig.conf` contains the parameters for all other training steps
 
 ### autoPhrase.conf
+
+```
+MODEL='ARXIV_CS'
+```
+
+The name of model to store the processed output.
 
 ```
 MIN_SUP=10
