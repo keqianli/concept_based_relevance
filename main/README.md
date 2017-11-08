@@ -114,3 +114,12 @@ minimum number of neighbors that each concept in the query concept set should ha
 MAX_NEIGHBORS=100
 ```
 maximum number of neighbors a concept in the concept will have
+
+## Evaluation
+run the following for evaluating the retrieval results
+```
+$ bash ./evaluate.sh
+```
+and specify the input/output by changing the following variables at the beginning of the script
+* ```LABELS_FILE```: the ground truth label file, each line contain a integer indicating the index of category (as in the ```CATEGORY_SEEDCONCEPTS``` file in ```test.sh```)
+* ```FINAL_RELEVANCE```: the final relevance score (same as in ```CATEGORY_SEEDCONCEPTS``` file)
