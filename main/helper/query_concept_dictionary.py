@@ -23,6 +23,8 @@ def displayString(w):
 
 
 name = 'default'
-while name:
-    query = raw_input("Input your query word. No input to terminate:")
-    print '\n'.join([displayString(c) for c in searchConcept(query)])
+while True:
+    name = raw_input("Input your query word. No input to terminate:")
+    if not name:
+        break
+    print '\n'.join([displayString(c) for c in searchConcept(name)])
