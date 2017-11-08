@@ -46,7 +46,7 @@ You can change the value of ```TEXT``` and ```CATEGORY_SEEDCONCEPTS``` by editin
 ## Helper function
 run
 ```
-$ bash ./test.sh
+$ bash ./helper.sh
 ```
 to use the helper function to select seed concepts. By entering a word, you will be able to get a list of concepts that contain the word, which can then be used as seed concepts
 
