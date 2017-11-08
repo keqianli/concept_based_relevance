@@ -19,7 +19,6 @@ export SEGGED_TEXT_TFIDF=$OUTPUT_DIR/tfidf
 mkdir -p $OUTPUT_DIR
 mkdir -p tmp
 
-
 cp ../AutoPhrase/$MODEL/segmentation.txt $SEGGED_TEXT
 python segmented2phrase_as_word.py $SEGGED_TEXT $SEGGED_TEXT_phrase_as_word
 python retain_alphanumeric.py $SEGGED_TEXT_phrase_as_word $SEGGED_TEXT_phrase_as_word_retain_alphanumeric

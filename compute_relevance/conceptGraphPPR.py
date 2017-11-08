@@ -8,6 +8,7 @@ import numpy as np
 import collections
 import ConfigParser
 
+THRESHOLD = .99
 
 cf = ConfigParser.ConfigParser()
 cf.read('conf.d/pyConfig.conf')
@@ -125,6 +126,9 @@ def get_concept_label_PPR():
 
 
 def get_concept_label_query_expansion():
+    '''
+        this is an alternative to get_concept_label_PPR1
+    '''
     model_concepts = word2vec.Word2Vec.load(file+'.model_wordPruning_dimension200_sg1_max_vocab_size-1')
 
     ind2label_concepts = model_concepts.wv.index2word
@@ -216,9 +220,5 @@ def categorize_documents():
 
 
 if __name__ == '__main__':
-    if int(USE_CONCEPT_GRAPH):
-        get_concept_label_PPR()
-    else:
-        get_concept_label_query_expansion()
-
+    get_concept_label_PPR()
     categorize_documents()

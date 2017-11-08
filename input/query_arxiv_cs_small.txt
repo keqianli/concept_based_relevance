@@ -1,0 +1,8 @@
+cs.AI	Artificial Intelligence
+cs.CL	Natural Language Processing
+cs.CV	Computer Vision
+cs.DC	Distributed Computing
+cs.IR	Information Retrieval
+cs.LG	Machine Learning
+cs.OS	Operating Systems
+cs.SE	Software Engineering

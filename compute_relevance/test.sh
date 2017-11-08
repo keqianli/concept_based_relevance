@@ -3,10 +3,10 @@ CATEGORY_SEEDCONCEPTS=${CATEGORY_SEEDCONCEPTS:-../input/query_arxiv_cs_small.txt
 
 source conf.d/autoPhrase.conf
 
-# export TEXT_TO_SEG=$TEXT
-# cd ../AutoPhrase/
-# ./phrasal_segmentation.sh
-# cd -
+export TEXT_TO_SEG=$TEXT
+cd ../AutoPhrase/
+./phrasal_segmentation.sh
+cd -
 
 export OUTPUT_DIR=../output/$MODEL
 export SEGGED_TEXT=$OUTPUT_DIR/segmentation.txt

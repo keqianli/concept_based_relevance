@@ -120,6 +120,7 @@ def compute_tfidf():
 
 def main():
     compute_wordvec()
+    compute_tfidf()
 
 
 if __name__ == '__main__':
