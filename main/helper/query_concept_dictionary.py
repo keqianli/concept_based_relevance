@@ -19,10 +19,10 @@ def searchConcept(query):
 
 
 def displayString(w):
-    return re.sub(r'</?phrase>', '', w)
+    return re.sub(r'</?phrase>', '', w).replace('_', ' ')
 
 
 name = 'default'
 while name:
-    query = raw_input("Input your query word. No input to terminate:\n")
+    query = raw_input("Input your query word. No input to terminate:")
     print '\n'.join([displayString(c) for c in searchConcept(query)])
