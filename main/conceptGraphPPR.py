@@ -125,42 +125,6 @@ def get_concept_label_PPR():
             f.write('%s:%s\n' % (ind2label_concepts[i], [pprs[category][ind2label_concepts[i]] for category in range(len(category_name_list))]))
 
 
-def get_concept_label_query_expansion():
-    '''
-        this is an alternative to get_concept_label_PPR1
-    '''
-    model_concepts = word2vec.Word2Vec.load(file+'.model_wordPruning_dimension200_sg1_max_vocab_size-1')
-
-    ind2label_concepts = model_concepts.wv.index2word
-    label2ind_concepts = reverseDict({k: v for k, v in enumerate(ind2label_concepts)})
-
-    def getConceptIDs(seed_concepts, label2ind_concepts):
-        l = [label2ind_concepts.get('<phrase>%s</phrase>' % w, label2ind_concepts.get(w)) for w in seed_concepts]
-        return [d for d in l if d is not None]
-
-    seed_conceptsAsIds = [getConceptIDs(seed_concepts, label2ind_concepts) for seed_concepts in seed_concepts_list]
-    seed_concepts_set = set([ind2label_concepts[i] for i in flatten(seed_conceptsAsIds)])
-
-    ind2label_concepts = [w for w in ind2label_concepts if '_' in w or w in seed_concepts_set]
-    label2ind_concepts = reverseDict({k: v for k, v in enumerate(ind2label_concepts)})
-    seed_conceptsAsIds = [getConceptIDs(seed_concepts, label2ind_concepts) for seed_concepts in seed_concepts_list]
-    seed_concept_sets = [set([ind2label_concepts[i] for i in seed_conceptsAsId]) for seed_conceptsAsId in seed_conceptsAsIds]
-
-    for ind in seed_concepts_set:
-        print ind, 'similar neighbors:', model_concepts.most_similar(ind, topn=10)
-
-    # get closest distance for one concept and a set of concepts
-    def getDistance_singleWordsSet(word_set, word):
-        return max([model_concepts.similarity(w, word) for w in word_set])
-
-    def getDistance_allWordsSets(seed_concept_sets, word):
-        return [getDistance_singleWordsSet(ws, word) for ws in seed_concept_sets]
-
-    with open(file_concept_label, 'w') as f:
-        for i in range(len(ind2label_concepts)):
-            f.write('%s:%s\n' % (ind2label_concepts[i], getDistance_allWordsSets(seed_concept_sets, ind2label_concepts[i])))
-
-
 def categorize_documents():
     def readSims(file_concept_label):
         word2sims = {}
