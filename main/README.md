@@ -52,10 +52,10 @@ To use the helper function to select seed concepts. By entering a lower case con
 
 ## Input Format
 * The input files specified by ```TEXT``` for both ```train.sh``` and ```test.sh``` should be one document per line.
-* The input file ```CATEGORY_SEEDCONCEPTS``` should have each line following the format ```[category name]\t[concept1],[concept2],[concept3]...```, and can contain one or more lines.
+* The input file ```CATEGORY_SEEDCONCEPTS``` should have each line following the format ```[category name]\t[concept1],[concept2],[concept3]...```, and can contain one or more lines. Category name is just a symbol to represent category, e.g. CS.AI, and concept corresponds to the query, e.g., machine learning
 
 ## Output Format
-The query relevance output, as specified by the `SEGGED_TEXT_categorized` in the beginning of the ```test.sh```, is in the format of [relevance to concept set1], [relevance to concept set2]...
+The query relevance output, as specified by the `SEGGED_TEXT_categorized` in the beginning of the ```test.sh```, is in the format of [relevance to concept set1], [relevance to concept set2]... each line for each document in the input text file.
 
 
 ## Hyper-Parameters
