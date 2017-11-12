@@ -39,7 +39,7 @@ $ bash ./test.sh
 ```
 and specify the input/output by changing the following variables at the beginning of the script
 * ```TEXT```: the input text file
-* ```CATEGORY_SEEDCONCEPTS```: one or more set of concepts to query
+* ```CATEGORY_SEEDCONCEPTS```: the input query file, specify one or more set of concepts to query
 
 You can change the value of ```TEXT``` and ```CATEGORY_SEEDCONCEPTS``` by editing the script, or exporting environmental variables with the same names.
 
@@ -48,7 +48,7 @@ run
 ```
 $ bash ./helper.sh
 ```
-to use the helper function to select seed concepts. By entering a word, you will be able to get a list of concepts that contain the word, which can then be used as seed concepts
+To use the helper function to select seed concepts. By entering a lower case concept, e.g., machine learning, you will be able to get a list of concepts that contain the word, which can then be used as seed concepts
 
 ## Input Format
 * The input files specified by ```TEXT``` for both ```train.sh``` and ```test.sh``` should be one document per line.
@@ -63,7 +63,7 @@ The running parameters are located in `conf.d` folder, including `autoPhrase.con
 
 `autoPhrase.conf` contains the parameters for concept extraction and segmentation.
 
-`pyConfig.conf` contains the parameters for all other training steps
+`pyConfig.conf` contains the parameters for all other training steps.
 
 ### autoPhrase.conf
 
@@ -91,14 +91,10 @@ The threshold for multi-word phrases to be recognized as quality phrases.
 HIGHLIGHT_SINGLE=0.9
 ```
 
-The threshold for multi-word phrases to be recognized as quality phrases.
+The threshold for single-word phrases to be recognized as quality phrases.
 
 ### pyConfig.conf
 
-```
-USE_CONCEPT_GRAPH=1
-```
-whether to use the concept graph distance algorithm (when set to `1`) or to use the basic query expansion algorithm (when set to `0`) to compute relevance.
 
 ```
 MIN_NEIGHBOR_SIMILARITY=.6
@@ -116,10 +112,10 @@ MAX_NEIGHBORS=100
 maximum number of neighbors a concept in the concept will have
 
 ## Evaluation
-run the following for evaluating the retrieval results
+We provide an example data which is a subset of arxiv computer science paper abstract. To use the provided script for evaluating the example data, run the following for evaluating the retrieval results
 ```
 $ bash ./evaluate.sh
 ```
 and specify the input/output by changing the following variables at the beginning of the script
-* ```LABELS_FILE```: the ground truth label file, each line contain a integer indicating the index of category (as in the ```CATEGORY_SEEDCONCEPTS``` file in ```test.sh```)
+* ```LABELS_FILE```: the ground truth label file, each line contains an integer indicating the index of category (as in the ```CATEGORY_SEEDCONCEPTS``` file in ```test.sh```)
 * ```FINAL_RELEVANCE```: the final relevance score (same as in ```CATEGORY_SEEDCONCEPTS``` file)
