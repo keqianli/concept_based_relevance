@@ -13,7 +13,6 @@ if len(sys.argv) > 2:
     file_label = sys.argv[2]
 
 # read relevance
-
 sims_documents = []
 for l in open(file_relevance):
     sims_documents.append([float(d) for d in l.split(' ')])
