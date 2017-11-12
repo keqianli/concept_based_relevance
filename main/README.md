@@ -112,10 +112,10 @@ MAX_NEIGHBORS=100
 maximum number of neighbors a concept in the concept will have
 
 ## Evaluation
-We provide an example data which is a subset of arxiv computer science paper abstract. To use the provided script for evaluating the example data, run the following for evaluating the retrieval results
+We provide an example data which is a subset of arxiv computer science papers. To use the provided script for evaluating on the example data, run the following for evaluating the retrieval results
 ```
 $ bash ./evaluate.sh
 ```
 and specify the input/output by changing the following variables at the beginning of the script
 * ```LABELS_FILE```: the ground truth label file, each line contains an integer indicating the index of category (as in the ```CATEGORY_SEEDCONCEPTS``` file in ```test.sh```)
-* ```FINAL_RELEVANCE```: the final relevance score (same as in ```CATEGORY_SEEDCONCEPTS``` file)
+* ```FINAL_RELEVANCE```: the final relevance score file (same as in ```CATEGORY_SEEDCONCEPTS``` file)
