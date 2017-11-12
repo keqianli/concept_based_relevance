@@ -22,11 +22,10 @@ sims_documents = np.array(sims_documents)
 labels = []
 for l in open(file_label):
     labels.append(int(l))
-labels_choices = list(set(labels))
 
 labels = np.array(labels)
 
-for label_choice in labels_choices:
+for label_choice in range(sims_documents.shape[1]):
     sims_documents_label_choice = sims_documents[:, label_choice]
     labels_label_choice = (labels == label_choice).astype(int)
     indexes_sorted = np.argsort(-sims_documents_label_choice)
